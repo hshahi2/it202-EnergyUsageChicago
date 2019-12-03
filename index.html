@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    
+    <body>
+        <head>
+          <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+          <meta charset="utf-8" />
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <title>MDC Lab - Top App Bar</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+          <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" />
+          <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+          <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">           
+          <style type="text/css">
+              
+              .hide {
+                    display: none;
+                }
+                #busTrainTabBar {
+                    padding-top: 30px;
+                    padding-bottom: 40px;
+                }
+                #logoImg {
+                    width: 100%;
+                }
+                #shrine-header {
+                    background-color: #E2E2E2;
+                }
+                .submitBtn {
+                    font-size: 30px;
+                }
+                #map {
+                    margin: 20px;
+                    padding: 20px;
+                    height: 850px;
+                }
+                .container {
+                    text-align: center;
+                    margin: auto;
+                    width: 66.6%;
+                    height: 66.6%;
+                }
+                #shrine-header .mdc-toolbar__section {
+                    overflow: visible;
+                }
+                .mdc-tab {
+                    font-size: 25px;
+                    padding: 15px 50px;
+                }
+                .mdc-select {
+                    margin: 30px;
+                    width: 30%;
+                }
+                .mdc-button {
+                    margin: 20px;
+                }
+                .mdc-radio {
+                    padding: 30px;
+                }
+            </style>      
+        </head>  
+
+        
+<body>
+  <header class="mdc-top-app-bar">
+    <div class="mdc-top-app-bar__row">
+        
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+        <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
+        <span class="mdc-top-app-bar__title">Energy Usage In Chicago</span>
+      </section>
+        <section>
+            
+        </section>
+        
+    </div>
+      
+  </header>
+      <div class="mdc-top-app-bar--fixed-adjust" style="height: 3000px;">
+             
+          <div class="mdc-tab-bar" role="tablist">
+              <div class="mdc-tab-scroller">
+                  <div class="mdc-tab-scroller__scroll-area">
+                      <div class="mdc-tab-scroller__scroll-content">
+                          <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
+                              <span class="mdc-tab__content">
+                                  <span class="mdc-tab__text-label">Search</span>
+                              </span>
+                              <span class="mdc-tab__ripple"></span>
+                          </button>
+
+                          <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
+                              <span class="mdc-tab__content">
+                                  <span class="mdc-tab__text-label">List</span>
+                              </span>
+                              <span class="mdc-tab__ripple"></span>
+                        </button>
+
+                        <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
+                            <span class="mdc-tab__content">
+                                <span class="mdc-tab__text-label">Map</span>
+                            </span>
+                            <span class="mdc-tab__ripple"></span>
+                        </button>          
+                      </div>
+                  </div>
+              </div>
+          </div>
+<!--           <p>testing</p> -->
+    </div>
+  <script>
+    mdc.topAppBar.MDCTopAppBar.attachTo(document.querySelector('.mdc-top-app-bar'))
+  </script>
+</body>
+        
+        
+   
+        
+<!-- <h1>My First Heading</h1>
+<p>My first paragraph.</p>
+ -->
+    </body>
+</html>
