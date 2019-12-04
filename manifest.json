@@ -1,6 +1,6 @@
 {
-  "short_name": "EnergyUsage",
-  "name": "Energy Usage In Chicago",
+  "short_name": "EnergyUsageBuildingV",
+  "name": "Energy Usage And Building Violation",
   "icons": [
     {
       "src": "./imgs/energy.jpg",

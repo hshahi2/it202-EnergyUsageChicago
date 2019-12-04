@@ -1,1 +1,74 @@
-Hello from list page 
+<body>     
+    <div class="mdc-drawer-app-content" id="content">
+      <h2>Addresses</h2>
+        <div></div>
+        <ul class="mdc-list" id="violations">
+            <li class="mdc-list-item template">
+                <span class="mdc-list-item__text">Single-line item</span>
+                <span class="mdc-list-item__secondary-text" >Secondary text</span>
+            </li>
+        </ul>
+    </div>
+    
+    
+    <script>
+        window.mdc.autoInit();
+        const drawer = document.querySelector('.mdc-drawer').MDCDrawer;
+        
+        //
+        // open drawer on nav icon
+        // 
+        document.getElementsByClassName("mdc-top-app-bar__navigation-icon")[0].addEventListener("click", function() {
+        drawer.open = true;
+        });
+        
+        //
+        // close drawer on selection
+        // 
+        let navs = document.getElementsByClassName("mdc-list-item");
+        
+        for (let i = 0; i < navs.length; i++) {
+            navs[i].addEventListener("click", function() {
+            drawer.open = false;
+            })
+        };
+    </script>
+
+    
+    <script>
+        let END_POINT = "https://data.cityofchicago.org/resource/22u3-xenr.json";
+        
+        $.get(END_POINT, function(data) {
+            
+            $("#content div").empty();
+            
+            let listDivider = $("<li>")
+            .addClass("mdc-list-divider")
+            .attr("role","separator");
+            
+            let template = $("ul#violations li.template");
+//         console.log("MY TEMP" + template);
+
+            $.each(data, function(i,v) {
+                let clone = template.clone();
+//            console.log("test" + v);
+                clone.find("span.mdc-list-item__text").text(v.address);
+                clone.find("span.mdc-list-item__secondary-text").text(v.id);
+                clone.removeClass("template");
+                
+                $("ul#violations").append(clone);
+                $("ul#violations").append(listDivider.clone());
+            });
+        });
+    </script>
+    <script src="/js/app.js"></script>    
+</body>
+
+
+
+    
+
+
+
+
+

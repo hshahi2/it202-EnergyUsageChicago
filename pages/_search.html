@@ -2,7 +2,7 @@
     <div class="mdc-drawer-app-content" id="content">
       <h2>Community Area Names</h2>
         <div></div>
-        <ul class="mdc-list" id="routes">
+        <ul class="mdc-list" id="energies">
             <li class="mdc-list-item template">
                 <span class="mdc-list-item__text">Single-line item</span>
                 <span class="mdc-list-item__secondary-text" >Secondary text</span>
@@ -46,7 +46,7 @@
             .addClass("mdc-list-divider")
             .attr("role","separator");
             
-            let template = $("ul#routes li.template");
+            let template = $("ul#energies li.template");
 //         console.log("MY TEMP" + template);
 
             $.each(data, function(i,v) {
@@ -56,35 +56,13 @@
                 clone.find("span.mdc-list-item__secondary-text").text(v.building_type);
                 clone.removeClass("template");
                 
-                $("ul#routes").append(clone);
-                $("ul#routes").append(listDivider.clone());
+                $("ul#energies").append(clone);
+                $("ul#energies").append(listDivider.clone());
             });
         });
     </script>
+    <script src="/js/app.js"></script>    
 </body>
-
-
-
-    
-
-
-<script>
-//     let END_POINT = "https://data.cityofchicago.org/resource/8yq3-m6wp.json";
-//     let END_POINT = "https://data.cityofchicago.org/resource/8yq3-m6wp.json";
-    
-//     $.get(END_POINT, function(data) {
-//         console.log(data);
-        
-//         $.each(data, function(I,V)  {
-//             console.log(I,V);
-//             $("body").append(V.community_area_name + ":  " + V.building_type);
-//         });
-//     });
-
-
-</script>
-
-
 
 
 
