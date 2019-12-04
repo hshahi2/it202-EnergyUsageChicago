@@ -1,53 +1,91 @@
-<script>
-            $.get("https://data.cityofchicago.org/resource/8yq3-m6wp.json", function(data) {
-              console.log(data);
-            $.each(data, function(I,V)  {
-                console.log(I,V);
-                $("body").append(V.community_area_name + "  ");
-               
+<body>     
+    <div class="mdc-drawer-app-content" id="content">
+      <h2>Community Area Names</h2>
+        <div></div>
+        <ul class="mdc-list" id="routes">
+            <li class="mdc-list-item template">
+                <span class="mdc-list-item__text">Single-line item</span>
+                <span class="mdc-list-item__secondary-text" >Secondary text</span>
+            </li>
+        </ul>
+    </div>
+    
+    
+    <script>
+        window.mdc.autoInit();
+        const drawer = document.querySelector('.mdc-drawer').MDCDrawer;
+        
+        //
+        // open drawer on nav icon
+        // 
+        document.getElementsByClassName("mdc-top-app-bar__navigation-icon")[0].addEventListener("click", function() {
+        drawer.open = true;
+        });
+        
+        //
+        // close drawer on selection
+        // 
+        let navs = document.getElementsByClassName("mdc-list-item");
+        
+        for (let i = 0; i < navs.length; i++) {
+            navs[i].addEventListener("click", function() {
+            drawer.open = false;
+            })
+        };
+    </script>
+
+    
+    <script>
+        let END_POINT = "https://data.cityofchicago.org/resource/8yq3-m6wp.json";
+        
+        $.get(END_POINT, function(data) {
+            
+            $("#content div").empty();
+            
+            let listDivider = $("<li>")
+            .addClass("mdc-list-divider")
+            .attr("role","separator");
+            
+            let template = $("ul#routes li.template");
+//         console.log("MY TEMP" + template);
+
+            $.each(data, function(i,v) {
+                let clone = template.clone();
+//            console.log("test" + v);
+                clone.find("span.mdc-list-item__text").text(v.community_area_name);
+                clone.find("span.mdc-list-item__secondary-text").text(v.building_type);
+                clone.removeClass("template");
+                
+                $("ul#routes").append(clone);
+                $("ul#routes").append(listDivider.clone());
             });
         });
+    </script>
+</body>
+
+
+
+    
+
+
+<script>
+//     let END_POINT = "https://data.cityofchicago.org/resource/8yq3-m6wp.json";
+//     let END_POINT = "https://data.cityofchicago.org/resource/8yq3-m6wp.json";
+    
+//     $.get(END_POINT, function(data) {
+//         console.log(data);
+        
+//         $.each(data, function(I,V)  {
+//             console.log(I,V);
+//             $("body").append(V.community_area_name + ":  " + V.building_type);
+//         });
+//     });
+
 
 </script>
 
-<!-- <div class="mdc-text-field mdc-text-field--fullwidth">
-  <input class="mdc-text-field__input"
-         type="text"
-         aria-label="Full-Width Text Field">
-</div>
- -->
 
-<!-- <div class="mdc-text-field mdc-text-field--outlined">
-  <input class="mdc-text-field__input" id="text-field-hero-input">
-  <div class="mdc-notched-outline mdc-notched-outline--no-label">
-    <div class="mdc-notched-outline__leading"></div>
-    <div class="mdc-notched-outline__notch">
-      <label for="text-field-hero-input" class="mdc-floating-label"></label>
-    </div>
-    <div class="mdc-notched-outline__trailing"></div>
-  </div>
-     -->
-    
 
-<!-- <div class="mdc-form-field">
-  <div class="mdc-checkbox">
-    <input type="checkbox"
-           class="mdc-checkbox__native-control"
-           id="checkbox-1"/>
-    <div class="mdc-checkbox__background">
-      <svg class="mdc-checkbox__checkmark"
-           viewBox="0 0 24 24">
-        <path class="mdc-checkbox__checkmark-path"
-              fill="none"
-              d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-      </svg>
-      <div class="mdc-checkbox__mixedmark"></div>
-    </div>
-    <div class="mdc-checkbox__ripple"></div>
-  </div>
-  <label for="checkbox-1">Checkbox 1</label>
-  <label for="checkbox-2">Checkbox 1</label>
-  <label for="checkbox-3">Checkbox 1</label>
 
-    
-</div> -->
+
+

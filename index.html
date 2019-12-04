@@ -3,48 +3,56 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Energo Usage Chicago Project</title>
-    <link href="https://unpkg.com/material-components-web@1.0.0/dist/material-components-web.min.css" rel="stylesheet" type="text/css" />
+    <title>Energy Usage Chicago Project</title>
+      <link href="https://unpkg.com/material-components-web@1.0.0/dist/material-components-web.min.css" rel="stylesheet" type="text/css" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>      
     <style>
       body {margin:0;}
-      
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+    .template{display:none;}
     </style>
   </head>
 <body>
+<!-------------------------------------------->
+<!--  MDC DISMISSIBLR DRAWER WITH 3 SCREENS -->
+<!-------------------------------------------->    
   <aside class="mdc-drawer mdc-drawer--dismissible" data-mdc-auto-init="MDCDrawer">
-    <div class="mdc-drawer__content">
-      <div class="mdc-list">
-        <a data-page="search" class="mdc-list-item mdc-list-item--activated" href="#" aria-selected="true">
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true"></i>
-          <span class="mdc-list-item__text">Search</span>
-        </a>
-        <a data-page="list" class="mdc-list-item" href="#">
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true"></i>
-          <span class="mdc-list-item__text">List</span>
-        </a>
-        <a data-page="map" class="mdc-list-item" href="#">
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true"></i>
-          <span class="mdc-list-item__text">Map</span>
-        </a>
+      <div class="mdc-drawer__content">
+          <div class="mdc-list">
+              <a data-page="search" class="mdc-list-item mdc-list-item--activated" href="#" aria-selected="true">
+                  <i class="material-icons mdc-list-item__graphic" aria-hidden="true"></i>
+                  <span class="mdc-list-item__text">Search</span>
+              </a>
+              <a data-page="list" class="mdc-list-item" href="#">
+                  <i class="material-icons mdc-list-item__graphic" aria-hidden="true"></i>
+                  <span class="mdc-list-item__text">List</span>
+              </a>
+              <a data-page="map" class="mdc-list-item" href="#">
+                  <i class="material-icons mdc-list-item__graphic" aria-hidden="true"></i>
+                  <span class="mdc-list-item__text">Map</span>
+              </a>
+          </div>
       </div>
-    </div>
-  </aside>
-
-  <div class="mdc-drawer-app-content">
+    </aside>
 <!-------------------------------------->
 <!--  TOP APP BAR ICON WITH THE NAME  -->
-<!-------------------------------------->
+<!-------------------------------------->    
+    <div class="mdc-drawer-app-content">
       <header class="mdc-top-app-bar app-bar" id="app-bar" data-mdc-auto-init="MDCTopAppBar">
-      <div class="mdc-top-app-bar__row">
-        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-          <a href="#" class="demo-menu material-icons mdc-top-app-bar__navigation-icon">menu</a>
-          <span class="mdc-top-app-bar__title">Energy Usage In Chicago</span>
-        </section>
-      </div>
-    </header>
-
+          <div class="mdc-top-app-bar__row">
+              <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                  <a href="#" class="demo-menu material-icons mdc-top-app-bar__navigation-icon">menu</a>
+                  <span class="mdc-top-app-bar__title">Energy Usage In Chicago</span>
+              </section>
+          </div>
+      </header>
     <main class="main-content" id="main-content">
       <div class="mdc-top-app-bar--fixed-adjust">
           
@@ -53,52 +61,33 @@
           <p style="text-align:center;" >
             <a href="https://data.cityofchicago.org/Environment-Sustainable-Development/Energy-Usage-2010/8yq3-m6wp">Visit Website</a>
           </p>
-          
-          
-
-
-          
-          
-          
-          
-          
-  
+          <img class="center" src="imgs/energy.jpg" alt="energy">
       </div>
     </main>
   </div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-
-
+<!----------------------------------------------------------->
+<!--  OPEN THE APPROPRIATE PAGE BASED ON WHAT USER CLICKS  -->
+<!----------------------------------------------------------->
     <script>
-      var drawer;
-
-      $(document).ready(function(){
-        mdc.autoInit();
-
-        drawer = $("aside")[0].MDCDrawer;
-
-
+        var drawer;
         
+        $(document).ready(function(){
+            mdc.autoInit();
 
-        $(".mdc-top-app-bar__navigation-icon").on("click", function(){
-          drawer.open = true;
+            drawer = $("aside")[0].MDCDrawer;
+
+            $(".mdc-top-app-bar__navigation-icon").on("click", function(){
+                drawer.open = true;
+            });
+
+            $(".mdc-drawer .mdc-list-item").on("click", function() {
+                var target=$(this).attr("data-page");
+                $(".mdc-top-app-bar--fixed-adjust").load("pages/_" + target + ".html");
+                drawer.open=false;
+            });
         });
-
-        $(".mdc-drawer .mdc-list-item").on("click", function() {
-          var target=$(this).attr("data-page");
-          $(".mdc-top-app-bar--fixed-adjust").load("pages/_" + target + ".html");
-          drawer.open=false;
-        });
-
-      });
-        
-      
-      
     </script>
-    
-    
-    
   </body>
 </html>
