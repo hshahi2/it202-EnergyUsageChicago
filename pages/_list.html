@@ -1,17 +1,18 @@
 <body>    
-          <meta name="theme-color" content="#FFE1C4">
-
+    <meta name="theme-color" content="#FFE1C4">
 
     <div class="mdc-drawer-app-content" id="content">
-      <h2>Addresses</h2>
+      <h2>Community Area Names</h2>
         <div></div>
-        <ul class="mdc-list" id="violations">
-            <li class="mdc-list-item template">
-                <span class="mdc-list-item__text">Single-line item</span>
-                <span class="mdc-list-item__secondary-text" >Secondary text</span>
+        <ul class="mdc-list mdc-list--two-line" id="violations">
+            <li class="mdc-list-item template" tabindex="0">
+                <span class="mdc-list-item__text">
+                    <span class="mdc-list-item__primary-text">Single-line item</span>
+                    <span class="mdc-list-item__secondary-text" >Secondary text</span>
+                </span>
             </li>
         </ul>
-    </div>
+    </div>    
     
     
     <script>
@@ -55,7 +56,7 @@
             $.each(data, function(i,v) {
                 let clone = template.clone();
 //            console.log("test" + v);
-                clone.find("span.mdc-list-item__text").text(v.address);
+                clone.find("span.mdc-list-item__primary-text").text(v.address);
                 clone.find("span.mdc-list-item__secondary-text").text(v.id);
                 clone.removeClass("template");
                 

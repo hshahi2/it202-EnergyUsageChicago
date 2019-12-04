@@ -5,10 +5,12 @@
     <div class="mdc-drawer-app-content" id="content">
       <h2>Community Area Names</h2>
         <div></div>
-        <ul class="mdc-list" id="energies">
-            <li class="mdc-list-item template">
-                <span class="mdc-list-item__text">Single-line item</span>
-                <span class="mdc-list-item__secondary-text" >Secondary text</span>
+        <ul class="mdc-list mdc-list--two-line" id="energies">
+            <li class="mdc-list-item template" tabindex="0">
+                <span class="mdc-list-item__text">
+                    <span class="mdc-list-item__primary-text">Single-line item</span>
+                    <span class="mdc-list-item__secondary-text" >Secondary text</span>
+                </span>
             </li>
         </ul>
     </div>
@@ -29,7 +31,7 @@
         // close drawer on selection
         // 
         let navs = document.getElementsByClassName("mdc-list-item");
-        
+       
         for (let i = 0; i < navs.length; i++) {
             navs[i].addEventListener("click", function() {
             drawer.open = false;
@@ -45,9 +47,9 @@
             
             $("#content div").empty();
             
-            let listDivider = $("<li>")
-            .addClass("mdc-list-divider")
-            .attr("role","separator");
+//             let listDivider = $("<li>")
+//             .addClass("mdc-list-divider")
+//             .attr("role","separator");
             
             let template = $("ul#energies li.template");
 //         console.log("MY TEMP" + template);
@@ -55,17 +57,16 @@
             $.each(data, function(i,v) {
                 let clone = template.clone();
 //            console.log("test" + v);
-                clone.find("span.mdc-list-item__text").text(v.community_area_name);
-                clone.find("span.mdc-list-item__secondary-text").text(v.building_type);
-                clone.removeClass("template");
+               clone.find("span.mdc-list-item__primary-text").text(v.community_area_name);
+               clone.find("span.mdc-list-item__secondary-text").text(v.building_type);
+               clone.removeClass("template");
                 
-//                 $("ul#energies").append("<br>");
-                $("ul#energies").append(clone);
-                $("ul#energies").append(listDivider.clone());
-                /////
+               $("ul#energies").append(clone);
+//                $("ul#energies").append(listDivider.clone());
+                
                 
                $("ul#energies li").on("click", function() {
-                    console.log("clicked " + v.community_area_name);
+                //    console.log("clicked " + v.community_area_name);
                    
                    
         });
@@ -77,7 +78,7 @@
         });
     </script>
     
-    
+<!--     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23790.48628614478!2d-87.74368251774953!3d41.81083635769622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e318f6d85f851%3A0xbca2900004c8fd68!2sArcher%20Heights%2C%20Chicago%2C%20IL%2060632!5e0!3m2!1sen!2sus!4v1575477790972!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe> -->
     
     <script>     
     </script>
