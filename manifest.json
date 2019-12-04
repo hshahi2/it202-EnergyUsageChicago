@@ -1,6 +1,7 @@
 {
   "short_name": "EnergyUsageBuildingV",
   "name": "Energy Usage And Building Violation",
+  "theme_color":  "#FFE1C4",
   "icons": [
     {
       "src": "./imgs/energy.jpg",
