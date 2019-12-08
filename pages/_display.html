@@ -1,0 +1,31 @@
+<!-- <div class="table-container"> -->
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+          <th scope="col">COMMUNITY AREA NAME</th>
+          <th scope="col">BUILDING TYPE</th>
+ 
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script>
+        var endpoint = sessionStorage.getItem("endpoint");
+        $.getJSON(endpoint, function(data){
+            var items = [];
+            $.each(data, function(key, value){
+                items.push("<tr>");
+                items.push("<td id=''"+key+"''>"+value.community_area_name+"</td>");
+                items.push("<td id=''"+key+"''>"+value.building_type+"</td>");
+                items.push("<td id=''"+key+"''>"+value.primary_type + ": " + value.description+"</td>");
+                items.push("<td id=''"+key+"''>"+value.date+"</td>");
+                items.push("<td id=''"+key+"''>"+value.block+"</td>");
+                items.push("<td id=''"+key+"''>"+value.arrest+"</td>");
+                items.push("<td id=''"+key+"''>"+value.district+"</td>");
+                items.push("</tr>");            
+            }); 
+            $("<tbody/>", {html: items.join("")}).appendTo("display");
+        });
+    </script> 
+<!-- </div> -->

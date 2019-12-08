@@ -1,8 +1,8 @@
 <body>    
+ <link rel="shortcut icon" href="imgs/favicon.ico">
     <meta name="theme-color" content="#FFE1C4">
-
     <div class="mdc-drawer-app-content" id="content">
-      <h2>Community Area Names</h2>
+      <h2>Building Addresses</h2>
         <div></div>
         <ul class="mdc-list mdc-list--two-line" id="violations">
             <li class="mdc-list-item template" tabindex="0">
@@ -13,36 +13,11 @@
             </li>
         </ul>
     </div>    
-    
-    
-    <script>
-        window.mdc.autoInit();
-        const drawer = document.querySelector('.mdc-drawer').MDCDrawer;
-        
-        //
-        // open drawer on nav icon
-        // 
-        document.getElementsByClassName("mdc-top-app-bar__navigation-icon")[0].addEventListener("click", function() {
-        drawer.open = true;
-        });
-        
-        //
-        // close drawer on selection
-        // 
-        let navs = document.getElementsByClassName("mdc-list-item");
-        
-        for (let i = 0; i < navs.length; i++) {
-            navs[i].addEventListener("click", function() {
-            drawer.open = false;
-            })
-        };
-    </script>
 
-    
     <script>
-        let END_POINT = "https://data.cityofchicago.org/resource/22u3-xenr.json";
+        let NEW_END_POINT = "https://data.cityofchicago.org/resource/22u3-xenr.json";
         
-        $.get(END_POINT, function(data) {
+        $.get(NEW_END_POINT, function(data) {
             
             $("#content div").empty();
             
