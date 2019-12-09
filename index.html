@@ -13,22 +13,38 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>      
     <style>
-      body {margin:0;
-        height: 100%; }
+      body {
+          margin:0;
+          height: 100%; 
+        }
         .center {
             display: block;
             margin-left: auto;
             margin-right: auto;
             width: 50%;
         }
-    .template{display:none;}
-                    .map-container{
-                height: 100%;
-            }
-           #map {
-                height: 500px;
-            }
-
+        .template {
+            display:none;
+        }
+        .map-container {
+            height: 100%; 
+        }
+        #map {
+            height: 500px;
+        }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        tr:nth-child(even) { 
+            background-color: #dddddd;
+        }
     </style>
   </head>
 <body>
