@@ -1,49 +1,46 @@
 <div class="map-container">
-    <p></p>    
-<div id="map"></div>
-<script>
-  function initMap() {
-    var center = {lat:41.881832, lng:-87.623177};
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 10,
-      center: center
-    });
-
-
-   var endpoint = sessionStorage.getItem("endpoint");
-   $.getJSON(endpoint, function(data){        
-       $.each(data, function(key, value){
-//            var contentString = '<div id="content">'+
-//             '<div id="siteNotice">'+
-//             '</div>'+
-//             '<h1 id="firstHeading" class="firstHeading">'+value.title+'</h1>'+
-//             '<div id="bodyContent">'+
-//             '<p><b>Movie Rating: </b>' + value.rating + '</p>' +
-//             '<p><b>Closed Captions: </b>' + value.cc + '</p>' +
-//             '<p><b>Park: </b>' + value.park + '</p>' +
-//             '<p><b>Address: </b>' + value.park_address + '</p>' +
-//             '<p><b>Park Phone #: </b>' + value.park_phone + '</p>' +
-//             '<p><b>Date :</b>' + value.date + '</p>' +
-//             '</div>'+
-//             '</div>';
-//            var infowindow = new google.maps.InfoWindow({
-//                content: contentString
-//            });
-           var marker = new google.maps.Marker({
-               position: {lat: parseFloat(value.location.latitude), lng: parseFloat(value.location.longitude) },
-               map: map,
-               title :" value.title"
-           }); 
-           marker.addListener('click', function() {
-              infowindow.open(map, marker);
+    <p></p>
+    <div id="map"></div>
+    <script>
+        function initMap() {
+            var center = {lat:41.881832, lng:-87.623177};
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 11,
+              center: center
+            });
+            var endpoint = sessionStorage.getItem("endpoint");
+            $.getJSON(endpoint, function(data) {         
+                $.each(data, function(key, value) {
+                    var contentString = '<div id="content">'+
+                    '<div id="siteNotice">'+
+                    '</div>'+
+                    '<h2 id="firstHeading" class="firstHeading">'+value.address+'</h2>'+
+                    '<div id="bodyContent">'+
+                    '<p><b>Inspection Status/Number: </b>' + value.inspection_status + "   -   " + value.inspection_number +'</p>' +
+                    '<p><b>Status/Code: </b>' + value.violation_status + "   -   " + value.violation_code + '</p>' + 
+                    '<p><b>Violation Date: </b>' + value.violation_date + '</p>' +
+                    '<p><b>Violation Ordinance: </b>' + value.violation_ordinance + '</p>' +
+                    '</div>'+
+                    '</div>';
+                    
+                   var infowindow = new google.maps.InfoWindow({
+                       content: contentString
+                   });
+                   var marker = new google.maps.Marker({
+                       position: {lat: parseFloat(value.latitude), lng: parseFloat(value.longitude) },
+                       map: map,
+                       title :" value.id"
+                   }); 
+                   marker.addListener('click', function() {
+                      infowindow.open(map, marker);
+                   });
+               });
            });
-       });
-   });
-  }
-</script>
-<script async defer
+          }
+    </script>
+    <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBl_zaQgDsonzRHgGWY0IeQ2ogydMWh87U&callback=initMap">
-</script>
+    </script>
 </div>
 
 

@@ -3,7 +3,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
     </head>
     <body class="mdc-typography">
-        <h1 class="mdc-typography--headline1">Enter Street Name</h1>
+        <h1 class="mdc-typography--headline1">Enter Community Area Name</h1>
     </body>
    
     <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon">
@@ -21,22 +21,22 @@
     </div>
 </center>
 
+
 <script>
     // Handler for when button is clicked or enter is pressed             
     $(document).ready(function() {
         $("#submitButton").on("click", function() {
             var textInput = document.getElementById('text-field-hero-input').value;
             console.log(textInput);
-
-            
-            var endpoint = "https://data.cityofchicago.org/resource/22u3-xenr.json?street_name=" + textInput;
+            var endpoint = "https://data.cityofchicago.org/resource/8yq3-m6wp.json?community_area_name=" + textInput;
 
             $.get(endpoint, function(response) {  
                 sessionStorage.setItem("endpoint",endpoint);
                 $(".content").hide();
-                 $("#map").load("./pages/_map.html");
+                $("#display").load("./pages/_display.html");
                 $("#display").show();
             });     
          });
     });
 </script>
+

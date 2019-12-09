@@ -1,10 +1,13 @@
-<!-- <div class="table-container"> -->
-<table class="table">
-    <thead class="thead-dark">
+<div class="table-container">
+    <table class="table">
+      <thead class="thead-dark">
         <tr>
-          <th scope="col">COMMUNITY AREA NAME</th>
-          <th scope="col">BUILDING TYPE</th>
- 
+          <th scope="col">Community Area Name</th>
+          <th scope="col">Building Type</th>
+          <th scope="col">KWH SQFT 1st Quartile 2010</th>
+          <th scope="col">KWH SQFT 2nd Quartile 2010</th>
+          <th scope="col">KWH SQFT 3rd Quartile 2010</th>
+          <th scope="col">KWH SQFT Maximum 2010</th> 
         </tr>
       </thead>
       <tbody></tbody>
@@ -18,14 +21,13 @@
                 items.push("<tr>");
                 items.push("<td id=''"+key+"''>"+value.community_area_name+"</td>");
                 items.push("<td id=''"+key+"''>"+value.building_type+"</td>");
-                items.push("<td id=''"+key+"''>"+value.primary_type + ": " + value.description+"</td>");
-                items.push("<td id=''"+key+"''>"+value.date+"</td>");
-                items.push("<td id=''"+key+"''>"+value.block+"</td>");
-                items.push("<td id=''"+key+"''>"+value.arrest+"</td>");
-                items.push("<td id=''"+key+"''>"+value.district+"</td>");
+                items.push("<td id=''"+key+"''>"+value.kwh_sqft_1st_quartile_2010+"</td>");
+                items.push("<td id=''"+key+"''>"+value.kwh_sqft_2nd_quartile_2010+"</td>");
+                items.push("<td id=''"+key+"''>"+value.kwh_sqft_3rd_quartile_2010+"</td>");
+                items.push("<td id=''"+key+"''>"+value.kwh_sqft_maximum_2010+"</td>");
                 items.push("</tr>");            
             }); 
-            $("<tbody/>", {html: items.join("")}).appendTo("display");
+            $("<tbody/>", {html: items.join("")}).appendTo("table");
         });
     </script> 
-<!-- </div> -->
+</div>

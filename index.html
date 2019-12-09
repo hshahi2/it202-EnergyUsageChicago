@@ -26,7 +26,7 @@
                 height: 100%;
             }
            #map {
-                height: 88%;
+                height: 500px;
             }
 
     </style>
@@ -38,22 +38,28 @@
   <aside class="mdc-drawer mdc-drawer--dismissible" data-mdc-auto-init="MDCDrawer">
       <div class="mdc-drawer__content">
           <div class="mdc-list">
-              <a data-page="input" class="mdc-list-item" href="#">
-                  <i class="material-icons mdc-list-item__graphic" aria-hidden="true"></i>
-                  <span class="mdc-list-item__text">Input</span>
-              </a>
-              <a data-page="display" class="mdc-list-item" href="#">
-                  <i class="material-icons mdc-list-item__graphic" aria-hidden="true"></i>
-                  <span class="mdc-list-item__text">Display Data</span>
-              </a>                  
               <a data-page="search" class="mdc-list-item mdc-list-item--activated" href="#" aria-selected="true">
                   <i class="material-icons mdc-list-item__graphic" aria-hidden="true"></i>
                   <span class="mdc-list-item__text">Energy Consumption</span>
               </a>
+              
+              <a data-page="inputTWO" class="mdc-list-item mdc-list-item" href="#display" >
+                  <i class="material-icons mdc-list-item__graphic" aria-hidden="true">v</i>
+                  <span class="mdc-list-item__text">Energy Input</span>
+              </a>                
+              <a data-page="display" class="mdc-list-item" href="#">
+                  <i class="material-icons mdc-list-item__graphic" aria-hidden="true"></i>
+                  <span class="mdc-list-item__text">Display Data</span>
+              </a>            
+
               <a data-page="list" class="mdc-list-item" href="#">
                   <i class="material-icons mdc-list-item__graphic" aria-hidden="true"></i>
                   <span class="mdc-list-item__text">Building Violations</span>
               </a>
+              <a data-page="input" class="mdc-list-item" href="#">
+                  <i class="material-icons mdc-list-item__graphic" aria-hidden="true"></i>
+                  <span class="mdc-list-item__text">Violations Input</span>
+              </a>              
               <a data-page="map" class="mdc-list-item" href="#">
                   <i class="material-icons mdc-list-item__graphic" aria-hidden="true"></i>
                   <span class="mdc-list-item__text">Map</span>
