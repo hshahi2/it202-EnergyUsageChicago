@@ -1,7 +1,6 @@
 <body>     
-          <meta name="theme-color" content="#FFE1C4">
- <link rel="shortcut icon" href="imgs/favicon.ico">
-
+    <meta name="theme-color" content="#FFE1C4">
+    <link rel="shortcut icon" href="imgs/favicon.ico">
 
     <div class="mdc-drawer-app-content" id="content">
     <head>
@@ -42,15 +41,10 @@
                 
                $("ul#energies").append(clone);
                $("ul#energies").append(listDivider.clone());
+               $("ul#energies").show();
                 
-                
-               $("ul#energies li").on("click", function() {
-                   console.log("clicked " );      
-               
-               });
-                $("ul#energies").show();
-
-            });
+            });    
+            console.log("ul#energies option:selected")
         });
     </script>
     <script src="/js/app.js"></script>    
