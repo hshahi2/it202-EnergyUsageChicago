@@ -112,12 +112,17 @@
 <!----------------------------------------------------------->
 <!--  OPEN THE APPROPRIATE PAGE BASED ON WHAT USER CLICKS  -->
 <!----------------------------------------------------------->
-    
-    
     <script>
+        hideScreens();
+
+
+        function hideScreens() {
+            $(".content").hide();
+        }
+        
         var drawer;
         
-        $(document).ready(function(){
+        $(document).ready(function() {
             mdc.autoInit();
 
             drawer = $("aside")[0].MDCDrawer;
@@ -127,6 +132,7 @@
             });
 
             $(".mdc-drawer .mdc-list-item").on("click", function() {
+                hideScreens();
                 var target=$(this).attr("data-page");
                 $(".mdc-top-app-bar--fixed-adjust").load("pages/_" + target + ".html");
                 drawer.open=false;

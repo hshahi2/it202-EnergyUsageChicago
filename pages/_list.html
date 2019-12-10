@@ -21,7 +21,9 @@
 
     <script>
         let NEW_END_POINT = "https://data.cityofchicago.org/resource/22u3-xenr.json";
-        
+    </script>    
+    
+    <script>
         $.get(NEW_END_POINT, function(data) {
             
             $("#content div").empty();
@@ -31,11 +33,9 @@
             .attr("role","separator");
             
             let template = $("ul#violations li.template");
-//         console.log("MY TEMP" + template);
 
             $.each(data, function(i,v) {
                 let clone = template.clone();
-//            console.log("test" + v);
                 clone.find("span.mdc-list-item__primary-text").text(v.address);
                 clone.find("span.mdc-list-item__secondary-text").text(v.id);
                 clone.removeClass("template");
